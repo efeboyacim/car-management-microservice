@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: car-service
+  config:
+    import: "optional:configserver:http://localhost:8088"
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: "jdbc:mysql://localhost:3306/car-management"
+    username: springstudent
+    password: springstudent
+
+
+server:
+  port: 8000
+
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+
+logging:
+  pattern:
+    level:%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]

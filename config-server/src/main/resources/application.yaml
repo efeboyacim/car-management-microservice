@@ -1,0 +1,21 @@
+server:
+  port: 8088
+
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+
+logging:
+  pattern:
+    level:%5p [${spring.application.name:},%X{traceId:-},%X{spanId:
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: file:///C:/Users/Efe/Desktop/project/microservices/git-localconfig-repo
